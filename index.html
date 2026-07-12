@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayushi Gupta — Brand & Growth Marketing</title>
+<meta name="description" content="Brand & Growth Marketer. 5.5+ years building myBiz by MakeMyTrip — GTM, co-branded campaigns, brand identity, partner ecosystems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0A1628; --ink2:#0F2040; --card:#12294A;
+  --coral:#FF6B35; --coral-hot:#FF8A5C;
+  --paper:#FFFFFF; --paper2:#F5F6FA;
+  --mut:rgba(255,255,255,.56); --mut-ink:rgba(10,22,40,.55);
+  --line:rgba(255,255,255,.1); --line-ink:rgba(10,22,40,.1);
+  --ease:cubic-bezier(.19,1,.22,1);
+  --disp:'Archivo',sans-serif; --mono:'IBM Plex Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--disp);background:var(--ink);color:#fff;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4.5vw,56px)}
+section{position:relative}
+
+/* corner marks */
+.cm{position:absolute;width:20px;height:20px;pointer-events:none;opacity:.45;color:var(--coral)}
+.cm b{position:absolute;background:currentColor;display:block}
+.cm b:first-child{width:100%;height:1.5px}.cm b:last-child{width:1.5px;height:100%}
+.cm.tl{top:22px;left:22px}.cm.br{bottom:22px;right:22px;transform:rotate(180deg)}
+
+/* type */
+.eyebrow{font-family:var(--mono);font-size:clamp(10px,.9vw,12.5px);letter-spacing:.32em;text-transform:uppercase;
+  font-weight:600;color:var(--coral);display:flex;align-items:center;gap:14px;margin-bottom:clamp(16px,2.6vh,28px)}
+.eyebrow::before{content:"";width:34px;height:2px;background:currentColor}
+h1,h2{font-weight:900;font-stretch:68%;text-transform:uppercase;line-height:.95;letter-spacing:.004em}
+h2{font-size:clamp(30px,4.6vw,58px)}
+.hl{background:var(--coral);color:var(--ink);padding:.03em .13em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.lead{font-size:clamp(15px,1.3vw,18.5px);line-height:1.6;color:var(--mut);font-weight:500;max-width:62ch}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:90;background:rgba(10,22,40,.82);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+nav .logo{font-family:var(--mono);font-weight:600;font-size:12.5px;letter-spacing:.22em;text-transform:uppercase}
+nav .logo b{color:var(--coral)}
+nav .links{display:flex;gap:clamp(14px,2.4vw,32px)}
+nav a{color:var(--mut);text-decoration:none;font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;transition:color .25s}
+nav a:hover,nav a:focus-visible{color:var(--coral)}
+nav a.cta{color:var(--coral);border:1px solid var(--coral);padding:7px 14px;border-radius:4px}
+nav a.cta:hover{background:var(--coral);color:var(--ink)}
+
+/* reveal system */
+.rv{opacity:0;transform:translateY(38px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
+
+/* HERO */
+#hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;
+  background:radial-gradient(120% 130% at 82% -8%,var(--ink2) 0%,var(--ink) 62%)}
+#hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1.4px);
+  background-size:26px 26px;pointer-events:none}
+#hero .wrap{padding-top:96px;padding-bottom:72px}
+#hero h1{font-size:clamp(52px,9.6vw,132px)}
+#hero h1 .u{position:relative;display:inline-block}
+#hero h1 .u i{position:absolute;left:0;bottom:.02em;height:.1em;width:100%;background:var(--coral);
+  transform:scaleX(0);transform-origin:left;border-radius:2px;font-style:normal;
+  box-shadow:0 0 26px rgba(255,107,53,.55)}
+body.loaded #hero h1 .u i{animation:uline .7s var(--ease) .9s forwards}
+@keyframes uline{to{transform:scaleX(1)}}
+#hero .role{font-family:var(--mono);font-size:clamp(12px,1.2vw,15px);letter-spacing:.3em;text-transform:uppercase;
+  color:var(--coral);margin:26px 0 18px;font-weight:600}
+#hero .strip{display:flex;gap:clamp(20px,4vw,58px);flex-wrap:wrap;margin-top:clamp(34px,5.5vh,58px);
+  border-top:1px solid var(--line);padding-top:clamp(22px,3.5vh,34px)}
+#hero .strip .s .n{font-weight:900;font-stretch:66%;font-size:clamp(28px,3.2vw,46px);line-height:1}
+#hero .strip .s .n em{color:var(--coral);font-style:normal}
+#hero .strip .s .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--mut);margin-top:8px;line-height:1.8}
+#hero .scrollhint{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
+  font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--mut);text-transform:uppercase}
+
+/* SPOTLIGHTS */
+#work{background:linear-gradient(165deg,var(--paper) 30%,var(--paper2) 100%);color:var(--ink);
+  padding:clamp(70px,11vh,120px) 0}
+#work .cm{color:var(--coral)}
+#work .lead{color:var(--mut-ink)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.2vw,26px);margin-top:clamp(34px,5vh,52px)}
+a.case{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);background:#fff;
+  border:1.5px solid var(--line-ink);border-radius:14px;padding:clamp(22px,2.4vw,32px);position:relative;overflow:hidden;
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .4s;min-height:380px}
+a.case::before{content:"";position:absolute;left:0;top:0;width:100%;height:5px;background:var(--coral);
+  transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+a.case:hover,a.case:focus-visible{transform:translateY(-8px);box-shadow:0 34px 60px -30px rgba(10,22,40,.35);border-color:transparent}
+a.case:hover::before,a.case:focus-visible::before{transform:scaleX(1)}
+.case .idx{font-weight:900;font-stretch:64%;font-size:clamp(40px,4vw,58px);color:rgba(10,22,40,.1);line-height:1;
+  transition:color .4s}
+a.case:hover .idx{color:var(--coral)}
+.case .tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;font-weight:600;color:var(--coral);
+  border:1px solid currentColor;border-radius:3px;padding:4px 9px;align-self:flex-start;margin:16px 0 14px;text-transform:uppercase}
+.case h3{font-weight:900;font-stretch:72%;text-transform:uppercase;font-size:clamp(19px,1.8vw,25px);line-height:1.04;margin-bottom:12px}
+.case p{font-size:clamp(12.5px,1.02vw,14.5px);line-height:1.55;color:var(--mut-ink);flex:1}
+.case .m{display:flex;gap:22px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line-ink)}
+.case .m div b{display:block;font-weight:900;font-stretch:66%;font-size:clamp(20px,2vw,28px);color:var(--ink)}
+.case .m div span{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut-ink)}
+.case .open{margin-top:20px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  font-weight:600;color:var(--coral);display:flex;align-items:center;gap:8px}
+.case .open::after{content:"→";transition:transform .35s var(--ease)}
+a.case:hover .open::after{transform:translateX(6px)}
+.linknote{margin-top:22px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--mut-ink)}
+
+/* IMPACT WALL */
+#impact{padding:clamp(70px,11vh,120px) 0;background:radial-gradient(110% 120% at 15% 0%,var(--ink2) 0%,var(--ink) 58%)}
+#impact::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1.4px);
+  background-size:26px 26px;pointer-events:none}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.8vw,22px);margin-top:clamp(34px,5vh,52px)}
+.stat{border:1px solid var(--line);border-radius:12px;padding:clamp(18px,2vw,26px);background:rgba(255,255,255,.025)}
+.stat .n{font-weight:900;font-stretch:64%;font-size:clamp(30px,3.4vw,50px);line-height:1;color:#fff}
+.stat .n em{color:var(--coral);font-style:normal}
+.stat .l{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);
+  margin-top:12px;line-height:1.8}
+.stat.wide{grid-column:span 2}
+
+/* EXPERIENCE */
+#exp{background:linear-gradient(165deg,var(--paper) 30%,var(--paper2) 100%);color:var(--ink);padding:clamp(70px,11vh,120px) 0}
+.tl{margin-top:clamp(30px,4.5vh,48px);display:flex;flex-direction:column}
+.job{display:grid;grid-template-columns:200px 1fr;gap:clamp(18px,3vw,44px);padding:clamp(24px,3.4vh,36px) 0;
+  border-top:1px solid var(--line-ink)}
+.job:last-child{border-bottom:1px solid var(--line-ink)}
+.job .when{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut-ink);line-height:2}
+.job h3{font-weight:900;font-stretch:72%;text-transform:uppercase;font-size:clamp(18px,1.9vw,26px);line-height:1.05}
+.job .co{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--coral);font-weight:600;margin:8px 0 12px;text-transform:uppercase}
+.job p{font-size:clamp(13px,1.1vw,15.5px);line-height:1.62;color:var(--mut-ink);max-width:72ch}
+.job p b{color:var(--ink)}
+
+/* TOOLKIT */
+#kit{padding:clamp(70px,11vh,120px) 0;background:var(--ink)}
+.kits{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.8vw,22px);margin-top:clamp(30px,4.5vh,48px)}
+.kit{border:1px solid var(--line);border-radius:12px;padding:clamp(18px,2vw,26px)}
+.kit h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--coral);
+  font-weight:600;margin-bottom:14px}
+.kit ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.kit li{font-size:clamp(12.5px,1vw,14.5px);font-weight:600;color:rgba(255,255,255,.82)}
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,1.8vw,22px);margin-top:clamp(30px,4.5vh,44px)}
+.edu .kit li{display:flex;justify-content:space-between;gap:14px}
+.edu .kit li span{font-family:var(--mono);font-size:10px;color:var(--mut);letter-spacing:.1em;white-space:nowrap}
+
+/* CONTACT */
+#contact{background:var(--coral);color:var(--ink);padding:clamp(70px,11vh,110px) 0}
+#contact h2{font-size:clamp(34px,6vw,76px)}
+#contact .eyebrow{color:var(--ink)}
+#contact .row{display:flex;gap:clamp(14px,2.4vw,28px);flex-wrap:wrap;margin-top:clamp(28px,4.5vh,42px)}
+#contact a{font-family:var(--mono);font-size:clamp(11px,1vw,13px);letter-spacing:.16em;text-transform:uppercase;
+  font-weight:600;color:var(--ink);text-decoration:none;border:2px solid var(--ink);border-radius:6px;
+  padding:14px 22px;transition:background .3s,color .3s}
+#contact a:hover,#contact a:focus-visible{background:var(--ink);color:#fff}
+footer{background:var(--ink);padding:26px 0;font-family:var(--mono);font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--mut)}
+footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+@media (max-width:960px){.cards{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}
+  .kits{grid-template-columns:1fr 1fr}.job{grid-template-columns:1fr;gap:8px}}
+@media (max-width:560px){.grid,.kits,.edu{grid-template-columns:1fr}.stat.wide{grid-column:span 1}
+  nav .links a:not(.cta){display:none}}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
+  .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="logo">AYUSHI<b>·</b>GUPTA</span>
+    <span class="links">
+      <a href="#work">Work</a><a href="#impact">Impact</a><a href="#exp">Experience</a><a href="#kit">Toolkit</a>
+      <a class="cta" href="#contact">Contact</a>
+    </span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <span class="cm tl"><b></b><b></b></span><span class="cm br"><b></b><b></b></span>
+  <div class="wrap">
+    <div class="eyebrow rv in">Brand &amp; Growth Marketing · Delhi, India</div>
+    <h1 class="rv in">I TURN CUSTOMER<br>INSIGHT INTO<br><span class="u">CATEGORY GROWTH.<i></i></span></h1>
+    <div class="role rv in d1">Ayushi Gupta · Deputy Manager, Brand &amp; Online Marketing · myBiz by MakeMyTrip</div>
+    <p class="lead rv in d2">5.5+ years building India's No.1 business travel platform's brand — full-funnel GTM across ATL, digital, partnerships and product marketing, with an AI-accelerated creative engine and a bias for measurable outcomes.</p>
+    <div class="strip rv in d3">
+      <div class="s"><div class="n">₹<em class="cnt" data-t="533">0</em> Cr</div><div class="l">Category GMV driven<br>~50% YoY growth</div></div>
+      <div class="s"><div class="n"><em class="cnt" data-t="2">0</em>×</div><div class="l">Promotions<br>in 3.5 years</div></div>
+      <div class="s"><div class="n"><em class="cnt" data-t="14">0</em>M+</div><div class="l">Ad impressions<br>CTR lifted 3% → 11%+</div></div>
+      <div class="s"><div class="n"><em class="cnt" data-t="3">0</em></div><div class="l">MakeMyTrip<br>marketing awards</div></div>
+    </div>
+  </div>
+  <div class="scrollhint">↓ scroll</div>
+</section>
+
+<!-- SPOTLIGHTS -->
+<section id="work">
+  <span class="cm tl"><b></b><b></b></span><span class="cm br"><b></b><b></b></span>
+  <div class="wrap">
+    <div class="eyebrow rv">Project Spotlights</div>
+    <h2 class="rv d1">THREE CAMPAIGNS.<br>THREE <span class="hl">FULL CASE DECKS.</span></h2>
+    <p class="lead rv d2" style="margin-top:20px">Each card opens the complete animated pitch deck — strategy, execution and honest, verified numbers. Attribution tags say exactly what I owned.</p>
+
+    <div class="cards">
+      <a class="case rv d1" href="mybiz-brand-pitch_2.html">
+        <div class="idx">01</div>
+        <span class="tag">Led · Brand</span>
+        <h3>The Cover Story — myBiz Brand Revamp</h3>
+        <p>Repositioned myBiz as a modern SaaS platform with a unified identity across every user touchpoint — driven by a prototype-first approach that made adoption the default.</p>
+        <div class="m">
+          <div><b>9+</b><span>Agency partners adopted</span></div>
+          <div><b>1</b><span>Unified brand system</span></div>
+        </div>
+        <span class="open">Open case deck</span>
+      </a>
+
+      <a class="case rv d2" href="mybiz-razorpay-breaktobuild-pitch_1.html">
+        <div class="idx">02</div>
+        <span class="tag">Led · Co-brand ATL</span>
+        <h3>Break The Assumption — myBiz × Razorpay, IPL 2026</h3>
+        <p>A founder-led co-branded film inside Razorpay's #BreakToBuild IP — 7 premium CTV slots across the IPL Qualifier 1 and Final, built to change a category belief, not sell features.</p>
+        <div class="m">
+          <div><b>+22%</b><span>Brand search · YoY, all-time high</span></div>
+          <div><b>+28%</b><span>Branded clicks · WoW, launch week</span></div>
+        </div>
+        <span class="open">Open case deck</span>
+      </a>
+
+      <a class="case rv d3" href="mybiz-swiggy-gtm-pitch_1.html">
+        <div class="idx">03</div>
+        <span class="tag">Led · GTM</span>
+        <h3>Out for Delivery — myBiz × Swiggy for Work</h3>
+        <p>End-to-end GTM for the Swiggy for Work integration across owned, CLM and digital channels — dual-audience messaging that turned a product integration into daily habit.</p>
+        <div class="m">
+          <div><b>+56%</b><span>Product adoption</span></div>
+          <div><b>200</b><span>Orders/day by Jun 2026</span></div>
+        </div>
+        <span class="open">Open case deck</span>
+      </a>
+    </div>
+    <p class="linknote rv d3">Decks open locally — keep the three case-deck HTML files in the same folder as this page.</p>
+  </div>
+</section>
+
+<!-- IMPACT WALL -->
+<section id="impact">
+  <span class="cm tl"><b></b><b></b></span><span class="cm br"><b></b><b></b></span>
+  <div class="wrap">
+    <div class="eyebrow rv">The Numbers</div>
+    <h2 class="rv d1">GROWTH YOU CAN <span class="hl">AUDIT.</span></h2>
+    <div class="grid">
+      <div class="stat rv d1"><div class="n"><em>18%</em> MoM</div><div class="l">Website visit growth — integrated 360° campaigns (Budget Wrap Up, Savings ka Mahurat, India's Biggest Business Travel Sale)</div></div>
+      <div class="stat rv d2"><div class="n"><em>190+</em></div><div class="l">Qualified account leads via partnership ecosystems — RazorpayX, Amazon Business, AMEX, Visa, Air India, IndiGo, HROne</div></div>
+      <div class="stat rv d3"><div class="n"><em>42</em> / <em>30</em></div><div class="l">Enterprise leads / ₹1Cr+ conversions via event sponsorships — Synapse, Ignition, GBTA India Summit, ETHRNext</div></div>
+      <div class="stat rv d4"><div class="n"><em>3×</em></div><div class="l">Social following scaled — 2M+ views at 12.49% engagement vs 5% benchmark, thought-leadership &amp; influencer engine</div></div>
+      <div class="stat wide rv d2"><div class="n">3% → <em>11%+</em> CTR</div><div class="l">Meta &amp; LinkedIn ads across 14M impressions — consumer segmentation + AI-powered asset production + continuous optimization</div></div>
+      <div class="stat wide rv d3"><div class="n"><em>16,570</em> / mo</div><div class="l">Monthly website visits at 33.72% CTR through PR narratives — ET HR, YourStory, Business Outlook</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="exp">
+  <span class="cm tl"><b></b><b></b></span><span class="cm br"><b></b><b></b></span>
+  <div class="wrap">
+    <div class="eyebrow rv">Experience</div>
+    <h2 class="rv d1">FROM WORDS<br>TO <span class="hl">P&amp;L IMPACT.</span></h2>
+    <div class="tl">
+      <div class="job rv d1">
+        <div class="when">Jul 2022 — Present</div>
+        <div>
+          <h3>Deputy Manager, Brand &amp; Online Marketing</h3>
+          <div class="co">myBiz by MakeMyTrip · Promoted twice in 3.5 years</div>
+          <p>Own the brand and online marketing engine for India's No.1 business travel platform. Architected value-proposition-led campaigns (<b>Zero Cancellation Fee, Free Breakfast, True Flexi</b>) rooted in customer insight, driving <b>₹533 Cr GMV and ~50% YoY category growth</b>. Led the unified brand revamp, the <b>Razorpay #BreakToBuild IPL co-brand</b>, the <b>Swiggy for Work GTM</b>, a 6-battlecards-per-quarter competitive intelligence system, and partnership GTMs across the RazorpayX–Amazon Business–AMEX–Visa–Air India–IndiGo–HROne ecosystem.</p>
+        </div>
+      </div>
+      <div class="job rv d2">
+        <div class="when">Nov 2021 — Jun 2022</div>
+        <div>
+          <h3>Content Writer</h3>
+          <div class="co">Netway India · Astroyogi</div>
+          <p>Built and executed an insight-led SEO content strategy driving <b>29% YoY growth</b> in keyword rankings and brand search volume; led a <b>15-member cross-functional content team</b> across blogs, email, video and campaigns.</p>
+        </div>
+      </div>
+      <div class="job rv d3">
+        <div class="when">Oct 2020 — Feb 2021</div>
+        <div>
+          <h3>Content Writer</h3>
+          <div class="co">PolicyBazaar</div>
+          <p>Improved on-page conversion rates <b>2×</b> through optimized consumer-facing ad and landing-page copy across insurance and consumer internet businesses.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLKIT -->
+<section id="kit">
+  <span class="cm tl"><b></b><b></b></span><span class="cm br"><b></b><b></b></span>
+  <div class="wrap">
+    <div class="eyebrow rv">Toolkit</div>
+    <h2 class="rv d1">STRATEGY FIRST.<br><span class="hl">AI-ACCELERATED.</span></h2>
+    <div class="kits">
+      <div class="kit rv d1"><h4>Strategy</h4><ul><li>Product &amp; brand marketing strategy</li><li>GTM &amp; product launch</li><li>Partner &amp; ecosystem marketing</li><li>Consumer insight &amp; behavioral data</li></ul></div>
+      <div class="kit rv d2"><h4>Channels</h4><ul><li>Meta · Google · DV360 · LinkedIn Ads</li><li>SEO &amp; content</li><li>CLM — Push / SMS / WhatsApp / Email</li><li>ATL · BTL · TTL &amp; OOH</li></ul></div>
+      <div class="kit rv d3"><h4>Measurement</h4><ul><li>Campaign analytics &amp; ROI</li><li>Google Analytics · HubSpot</li><li>Win/loss &amp; competitive intelligence</li><li>Insight storytelling &amp; internal comms</li></ul></div>
+      <div class="kit rv d4"><h4>AI Stack</h4><ul><li>Claude · ChatGPT · Gemini</li><li>Gamma · Canva · Figma</li><li>AI-powered asset production</li><li>Workflow automation · HTML</li></ul></div>
+    </div>
+    <div class="edu">
+      <div class="kit rv d2"><h4>Education</h4><ul>
+        <li>PGDM, Marketing &amp; Strategy — MDI Gurgaon <span>2025–27</span></li>
+        <li>MA, English Literature — University of Delhi <span>2018</span></li>
+        <li>BA (Hons), English — University of Delhi <span>2016</span></li>
+      </ul></div>
+      <div class="kit rv d3"><h4>Awards · MakeMyTrip</h4><ul>
+        <li>Marketing mySpot Award <span>2025–26</span></li>
+        <li>Dream Team Award <span>Nov 2025</span></li>
+        <li>Alpha Performer Award <span>Feb 2023</span></li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="eyebrow rv">Contact</div>
+    <h2 class="rv d1">LET'S BUILD THE<br>NEXT CASE STUDY.</h2>
+    <div class="row rv d2">
+      <a href="mailto:ayushi7148@gmail.com">ayushi7148@gmail.com</a>
+      <a href="tel:+919650698567">+91 96506 98567</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>© 2026 Ayushi Gupta</span><span>Brand &amp; Growth Marketing · Delhi, India</span></div></footer>
+
+<script>
+(function(){
+  document.body.classList.add('loaded');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const io = new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);
+      e.target.querySelectorAll('.cnt').forEach(run); if(e.target.classList.contains('cnt')) run(e.target); }});
+  },{threshold:.2});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  document.querySelectorAll('#hero .cnt').forEach(run);
+  function run(el){
+    if(el.dataset.done) return; el.dataset.done=1;
+    const t=+el.dataset.t, dur=reduced?1:1300, t0=performance.now();
+    (function tick(now){
+      const p=Math.min(1,(now-t0)/dur), e=1-Math.pow(1-p,3);
+      el.textContent=Math.round(t*e);
+      if(p<1) requestAnimationFrame(tick);
+    })(t0);
+  }
+})();
+</script>
+</body>
+</html>
