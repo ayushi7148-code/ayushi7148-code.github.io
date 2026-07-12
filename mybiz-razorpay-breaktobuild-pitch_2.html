@@ -171,33 +171,6 @@ section.slide{position:relative;height:100vh;scroll-snap-align:start;scroll-snap
 #s6 .statstrip{display:flex;gap:clamp(16px,3vw,44px);align-items:baseline;margin:clamp(8px,1.6vh,18px) 0 clamp(18px,3vh,34px);flex-wrap:wrap}
 #s6 .statstrip .big{font-weight:900;font-stretch:66%;font-size:clamp(40px,5vw,72px);color:var(--blue);line-height:1}
 #s6 .statstrip .lbl{font-family:var(--mono);font-size:clamp(10px,1vw,13px);letter-spacing:.22em;text-transform:uppercase;color:var(--mut-ink);font-weight:600}
-.tv-scene{perspective:1400px;position:relative;display:flex;justify-content:center;align-items:center;height:min(52vh,470px)}
-.tv{width:min(620px,58vw);border-radius:14px;background:#05060f;padding:12px;transform:rotateY(16deg) rotateX(4deg);
-  box-shadow:0 60px 110px -40px rgba(10,22,40,.55);transition:transform 1.1s var(--ease);position:relative;z-index:2}
-.go .tv{transform:rotateY(-4deg) rotateX(2deg)}
-.tv::after{content:"";position:absolute;left:50%;bottom:-26px;width:36%;height:20px;transform:translateX(-50%);
-  background:radial-gradient(ellipse at center,rgba(10,22,40,.35),transparent 70%)}
-.tv img{display:block;width:100%;border-radius:8px}
-.tv .live{position:absolute;top:22px;left:22px;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.2em;
-  background:var(--blue);color:var(--ink);padding:4px 10px;border-radius:3px;display:flex;gap:7px;align-items:center}
-.tv .live i{width:7px;height:7px;border-radius:50%;background:var(--ink);animation:blink 1.4s infinite}
-@keyframes blink{50%{opacity:.25}}
-.orb{position:absolute;background:#fff;border:1.5px solid rgba(10,22,40,.1);border-radius:10px;
-  box-shadow:0 24px 50px -22px rgba(10,22,40,.35);padding:12px 16px;font-family:var(--mono);
-  font-size:clamp(9.5px,.9vw,12px);letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink);
-  display:flex;align-items:center;gap:9px;z-index:3;opacity:0}
-.orb i{width:9px;height:9px;background:var(--blue);border-radius:2px;flex:none}
-.go .orb{animation:orbIn .8s var(--ease) forwards}
-.orb.o1{left:2%;top:12%;animation-delay:1.1s!important}
-.orb.o2{left:6%;bottom:14%;animation-delay:1.3s!important}
-.orb.o3{right:3%;top:20%;animation-delay:1.5s!important}
-.orb.o4{right:6%;bottom:10%;animation-delay:1.7s!important}
-@keyframes orbIn{from{opacity:0;transform:translateY(30px) scale(.9)}to{opacity:1;transform:none}}
-.go .orb.o1{animation:orbIn .8s var(--ease) 1.1s forwards, bob 5s ease-in-out 2s infinite}
-.go .orb.o2{animation:orbIn .8s var(--ease) 1.3s forwards, bob 6s ease-in-out 2.2s infinite}
-.go .orb.o3{animation:orbIn .8s var(--ease) 1.5s forwards, bob 5.4s ease-in-out 2.4s infinite}
-.go .orb.o4{animation:orbIn .8s var(--ease) 1.7s forwards, bob 6.4s ease-in-out 2.6s infinite}
-@keyframes bob{0%,100%{margin-top:0}50%{margin-top:-12px}}
 
 /* S7 proof */
 .proof{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(20px,4vw,70px);align-items:center;
@@ -230,6 +203,18 @@ section.slide{position:relative;height:100vh;scroll-snap-align:start;scroll-snap
 #rail{position:fixed;right:18px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:50}
 #rail a{width:8px;height:8px;border-radius:50%;background:rgba(150,165,195,.38);display:block;transition:.3s}
 #rail a.on{background:var(--blue-hot);transform:scale(1.5);box-shadow:0 0 14px rgba(255,138,92,.8)}
+
+/* notes drawer */
+#notesBtn{position:fixed;left:20px;bottom:20px;z-index:60;font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;background:var(--blue);color:var(--ink);border:none;padding:10px 16px;border-radius:6px;cursor:pointer;font-weight:600}
+#notes{position:fixed;left:0;right:0;bottom:0;z-index:55;background:rgba(8,10,24,.96);backdrop-filter:blur(10px);
+  border-top:2px solid var(--blue);padding:22px clamp(24px,6vw,100px) 64px;transform:translateY(101%);
+  transition:transform .5s var(--ease);color:#fff;max-height:44vh;overflow:auto}
+#notes.open{transform:none}
+#notes h5{font-family:var(--mono);font-size:11px;letter-spacing:.26em;color:var(--blue-hot);text-transform:uppercase;margin-bottom:10px}
+#notes p{font-size:14.5px;line-height:1.65;color:rgba(255,255,255,.85);max-width:90ch}
+#hint{position:fixed;right:20px;bottom:20px;z-index:50;font-family:var(--mono);font-size:10px;letter-spacing:.16em;
+  color:rgba(160,175,205,.6);text-transform:uppercase}
 
 @media (max-width:860px){
   .split,#s3 .stagewrap,.cols,.proof{grid-template-columns:1fr}
@@ -297,169 +282,193 @@ section.slide{position:relative;height:100vh;scroll-snap-align:start;scroll-snap
       <p class="body-copy rise dl4" style="margin-top:14px">The fit was surgical: their platform celebrated norm-breakers. Our brand <b style="color:#fff">was</b> a norm-break.</p>
     </div>
     <div class="shots">
-      <div class="shot a fadeR dl2"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23111' width='400' height='300'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='%23666' text-anchor='middle' dominant-baseline='middle'%3ECo-brand Moment%3C/text%3E%3C/svg%3E" alt="myBiz × Razorpay co-brand"></div>
-      <div class="shot b fadeR dl2"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='240'%3E%3Crect fill='%23111' width='320' height='240'/%3E%3Ctext x='50%' y='50%' font-size='20' fill='%23666' text-anchor='middle' dominant-baseline='middle'%3EIPL Impact%3C/text%3E%3C/svg%3E" alt="IPL 2026 campaign"></div>
+      <div class="shot a fadeR dl2"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23222'%20width='400'%20height='300'/%3E%3Ctext x='50%25' y='50%25' font-size='18' fill='%23666' text-anchor='middle' dy='.3em'%3E%5BVideo Placeholder%5D%3C/text%3E%3C/svg%3E" alt="Campaign moment visual"></div>
+      <div class="shot b fadeR dl3"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23222'%20width='400'%20height='300'/%3E%3Ctext x='50%25' y='50%25' font-size='18' fill='%23666' text-anchor='middle' dy='.3em'%3E%5BVideo Placeholder%5D%3C/text%3E%3C/svg%3E" alt="Campaign execution"></div>
     </div>
   </div>
 </section>
 
 <!-- 4 · THE BET -->
-<section class="slide paper" id="s4">
+<section class="slide paper" id="s4" data-notes="This is where media meets marketing ops. Seven premium slots across Qualifier 1 and Final. Cost: premium. Reach: only the right people, at the right time, during India's biggest cricket moments.">
   <span class="cm tl"><b></b><b></b></span><span class="cm br"><b></b><b></b></span>
-  <div style="max-width:800px">
-    <div class="eyebrow slam">03 · The Strategic Bet</div>
-    <h2 class="h-sub slam dl1">7 PREMIUM CTV SLOTS.<br><span class="hl">ONE FOUNDER-LED STORY.</span></h2>
-    <p class="body-copy rise dl3" style="margin-top:24px">Rather than product positioning, we led with Rajesh's founder story — a norm-breaker who saw what others didn't. The narrative: category transformation isn't a feature. It's a shift in how business leaders think.</p>
-  </div>
-  <div class="cols">
-    <div class="col c1">
-      <h4>The Approach</h4>
-      <ul>
-        <li>Founder narrative, not feature dump</li>
-        <li>Built into Razorpay's #BreakToBuild IP</li>
-        <li>7 IPL slots (Qualifier 1, Final)</li>
-        <li>Premium CTV placement only</li>
-      </ul>
-    </div>
-    <div class="col c2">
-      <h4>The Outcomes</h4>
-      <ul>
-        <li><span class="pulse">+22%</span> brand search YoY (all-time high)</li>
-        <li><span class="pulse">+28%</span> branded clicks WoW launch week</li>
-        <li>190+ qualified account leads post-campaign</li>
-        <li>3× social amplification among target founders</li>
-      </ul>
+  <div>
+    <div class="eyebrow slam">03 · The Bet</div>
+    <h2 class="h-sub slam dl1">7 PREMIUM CTV SLOTS.<br>IPL QUALIFIER 1 &amp; <span class="hl">FINAL.</span></h2>
+    <div class="cols">
+      <div class="col c1">
+        <h4>The Play</h4>
+        <ul>
+          <li>30-sec founder-led film</li>
+          <li>Co-branded with Razorpay #BreakToBuild</li>
+          <li>Focused on belief change, not feature</li>
+          <li>Aired during premium cricket moments</li>
+        </ul>
+      </div>
+      <div class="col c2">
+        <h4>The Impact</h4>
+        <ul>
+          <li>+22% brand search YoY</li>
+          <li>+28% branded clicks WoW</li>
+          <li><span class="pulse">All-time high</span> brand lift metrics</li>
+          <li>Permission to change category belief</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 5 · ROLE BREAKDOWN -->
-<section class="slide ink" id="s5">
+<!-- 5 · ROLES -->
+<section class="slide ink" id="s5" data-notes="Make this explicit: I led narrative strategy and PMM. That means I owned: why this moment, why this partner, why this angle, why this belief.">
   <span class="cm tl"><b></b><b></b></span><span class="cm br"><b></b><b></b></span>
-  <div style="position:relative;z-index:1">
-    <div class="eyebrow slam">04 · Role Breakdown</div>
-    <h2 class="h-sub slam dl1">MY THREE-LAYER OWNERSHIP</h2>
+  <div>
+    <div class="eyebrow slam">04 · My Role</div>
+    <h2 class="h-sub slam dl1">STRATEGY, NARRATIVE,<br>&amp; <span class="hl">PARTNER ALIGNMENT.</span></h2>
     <div class="panels">
       <div class="panel">
         <div class="num">1</div>
-        <h3>Strategy &amp;<br>Narrative</h3>
-        <p>Positioned myBiz as a norm-breaker within Razorpay's founder IP. Built the founder story arc that became the 30-second hero film.</p>
-        <span class="roletag">Led</span>
+        <h3>Strategic Fit</h3>
+        <p>Built the case for why myBiz + Razorpay aligned — why their norm-breaker IP needed our founder's authentic story.</p>
       </div>
       <div class="panel">
         <div class="num">2</div>
-        <h3>Cross-Function<br>Coordination</h3>
-        <p>Managed alignment with MakeMyTrip leadership, Razorpay PMM, production house, and media partners across 5 months.</p>
-        <span class="roletag">Led</span>
+        <h3>Narrative Ownership</h3>
+        <p>Authored the core belief: "Business travel moved online. Here's proof." Single, category-changing idea.</p>
       </div>
       <div class="panel">
         <div class="num">3</div>
-        <h3>Post-Campaign<br>GTM</h3>
-        <p>Executed landing page, email nurture, sales battlecard, and LinkedIn/Meta amplification to convert awareness into leads.</p>
-        <span class="roletag">Led</span>
+        <h3>PMM Execution</h3>
+        <p>Coordinated with Razorpay on messaging, timing, media slots, and success metrics. Alignment at every stage.</p>
       </div>
     </div>
+    <div class="roletag">Led Strategy + Brand Marketing</div>
   </div>
 </section>
 
-<!-- 6 · STAGE SETUP -->
-<section class="slide paper" id="s6">
+<!-- 6 · THE STAGE -->
+<section class="slide paper" id="s6" data-notes="The IPL 2026 moment. Premium CTV. Millions watching. High cost per impression, but right people, right time, right belief shift.">
   <span class="cm tl"><b></b><b></b></span><span class="cm br"><b></b><b></b></span>
-  <div style="max-width:1000px">
-    <div class="eyebrow slam">05 · Why It Worked</div>
-    <h2 class="h-sub slam dl1">THE MATH BEHIND<br>BELIEF CHANGE</h2>
-    <div id="s6">
-      <div class="statstrip">
-        <div class="big">22%</div>
-        <div class="lbl">Brand search growth<br>(YoY, launch month)</div>
+  <div>
+    <div class="eyebrow slam">05 · The Numbers</div>
+    <h2 class="h-sub slam dl1">IPL 2026 QUALIFIER 1 &amp; <span class="hl">FINAL.</span></h2>
+    <div class="statstrip">
+      <div>
+        <div class="big">+22%</div>
+        <div class="lbl">Brand Search YoY</div>
       </div>
-      <div class="statstrip">
-        <div class="big">28%</div>
-        <div class="lbl">Branded click lift<br>(WoW week 1)</div>
+      <div>
+        <div class="big">+28%</div>
+        <div class="lbl">Branded Clicks WoW</div>
       </div>
     </div>
-    <p class="body-copy" style="margin-top:32px"><b>The insight:</b> Co-branding with a credible founder IP (Razorpay's #BreakToBuild) gave myBiz narrative permission. We weren't asking India to believe we could innovate — we were showing them the founder who already had. Result: 190+ qualified enterprise leads in 60 days.</p>
+    <p class="body-copy" style="color:var(--mut-ink)">Verification: Google Search Console + proprietary brand tracking. The belief shifted. Online business travel moved from "possible" to "inevitable" in the market's mind.</p>
   </div>
 </section>
 
-<!-- 7 · PROOF POINT -->
-<section class="slide ink" id="s7">
+<!-- 7 · PROOF -->
+<section class="slide ink" id="s7" data-notes="Quantified proof. Metrics came first. Then we built backwards to the story. That's how you know the idea was solid.">
   <span class="cm tl"><b></b><b></b></span><span class="cm br"><b></b><b></b></span>
-  <div style="position:relative;z-index:1">
-    <div class="eyebrow slam">06 · The Proof</div>
+  <div>
+    <div class="eyebrow slam">06 · Verified Metrics</div>
+    <h2 class="h-sub slam dl1">BELIEF SHIFTS.<br><span class="hl">AUDIT THE PROOF.</span></h2>
     <div class="proof">
       <div class="pstat">
-        <div class="n">190<span style="font-size:.5em">+</span></div>
-        <div class="l">Qualified enterprise leads · 60 days post-campaign</div>
+        <div class="n">22<span style="font-size:.4em">%</span></div>
+        <div class="l">Brand Search Growth</div>
       </div>
       <div class="pdiv"></div>
       <div class="pstat" style="text-align:right">
-        <div class="n" style="background:linear-gradient(110deg,#fff 30%,#ffc9a8 46%,#fff 60%);background-size:280% 100%;background-position:120% 0;">$2.3M</div>
-        <div class="l">Pipeline value from co-brand leads (Est.)</div>
+        <div class="n">28<span style="font-size:.4em">%</span></div>
+        <div class="l">Branded Click Growth</div>
       </div>
     </div>
+    <div class="whyline body-copy" style="margin-top:40px">Why this campaign worked: We didn't sell features. We killed an assumption. Razorpay gave us the stage. We changed the category narrative. Both of us won.</div>
   </div>
 </section>
 
 <!-- 8 · CLOSE -->
-<section class="slide paper" id="s8">
+<section class="slide paper" id="s8" data-notes="The closing is the principle. Not the media plan, not the metrics — the principle. What you learned. What works. Why this matters.">
   <span class="cm tl"><b></b><b></b></span><span class="cm br"><b></b><b></b></span>
-  <div style="max-width:900px">
-    <div class="eyebrow slam">Key Lessons Learned</div>
+  <div>
+    <div class="eyebrow slam">07 · The Principle</div>
+    <h2 class="h-sub slam dl1">CO-BRANDING<br>IS NARRATIVE <span class="hl">ADJACENCY.</span></h2>
     <div class="principles">
       <div class="pr">
-        <span class="k">01 — </span>
-        <h3>Co-branding is narrative adjacency, not logo placement. Find a partner whose belief system validates yours.</h3>
+        <span class="k">1.</span>
+        <h3>Find partners with overlapping beliefs</h3>
       </div>
       <div class="pr">
-        <span class="k">02 — </span>
-        <h3>Premium placements + founder stories convert belief. Mid-roll ads selling features don't.</h3>
+        <span class="k">2.</span>
+        <h3>Amplify the shared belief, not each other's logos</h3>
       </div>
       <div class="pr">
-        <span class="k">03 — </span>
-        <h3>Post-campaign GTM is where belief turns into leads. The 7 CTV slots were table stakes — the landing page converted.</h3>
+        <span class="k">3.</span>
+        <h3>Measure belief change, not just clicks</h3>
       </div>
     </div>
     <div class="finale">
-      <p class="body-copy" style="margin-top:48px">This campaign proved that in B2B marketing, you don't sell features. You sell permission to believe in a future your customer hasn't imagined yet. Razorpay gave us the stage. We made the category watch.</p>
+      <p class="body-copy" style="margin-top:34px">When two brands share a norm they want to break, the co-branded moment becomes unstoppable. Razorpay's stage + myBiz's truth = category shift.</p>
     </div>
-  </div>
-  <div class="closelock">
-    <span>myBiz × Razorpay · #BreakToBuild · IPL 2026</span>
-    <span class="btb">CASE STUDY</span>
+    <div class="closelock">
+      <span>© 2026 Ayushi Gupta · myBiz by MakeMyTrip</span>
+      <span class="btb">CASE STUDY END</span>
+    </div>
   </div>
 </section>
 
-</div><!-- deck -->
+</div>
+
+<nav id="rail">
+  <a href="#s1" class="on"></a>
+  <a href="#s2"></a>
+  <a href="#s3"></a>
+  <a href="#s4"></a>
+  <a href="#s5"></a>
+  <a href="#s6"></a>
+  <a href="#s7"></a>
+  <a href="#s8"></a>
+</nav>
+
+<button id="notesBtn">Notes</button>
+<div id="notes"></div>
+<div id="hint">scroll ↓</div>
 
 <script>
-document.body.classList.add('go');
-const slides = document.querySelectorAll('.slide');
-const rail = document.getElementById('rail');
-let currentSlide = 0;
-
-// Create rail dots
-slides.forEach((_, i) => {
-  const dot = document.createElement('a');
-  dot.href = '#';
-  if (i === 0) dot.classList.add('on');
-  dot.addEventListener('click', (e) => {
-    e.preventDefault();
-    slides[i].scrollIntoView();
-  });
-  rail?.appendChild(dot);
-});
-
-// Update rail on scroll
-window.addEventListener('scroll', () => {
-  let newCurrent = Math.round(window.scrollY / window.innerHeight);
-  if (newCurrent !== currentSlide && newCurrent < slides.length) {
-    currentSlide = newCurrent;
-    document.querySelectorAll('#rail a').forEach((dot, i) => {
-      dot.classList.toggle('on', i === currentSlide);
+(function(){
+  const rail = document.getElementById('rail');
+  const slides = document.querySelectorAll('.slide');
+  const notesBtn = document.getElementById('notesBtn');
+  const notesPanel = document.getElementById('notes');
+  const deck = document.getElementById('deck');
+  
+  // Scroll tracking
+  let current = 0;
+  deck.addEventListener('scroll', () => {
+    let active = 0;
+    slides.forEach((s, i) => {
+      if (s.getBoundingClientRect().top <= window.innerHeight / 2) active = i;
     });
-  }
-});
+    if (active !== current) {
+      current = active;
+      rail.querySelectorAll('a').forEach((a, i) => {
+        a.classList.toggle('on', i === active);
+      });
+    }
+  });
+  
+  // Notes system
+  notesBtn.addEventListener('click', () => {
+    notesPanel.classList.toggle('open');
+  });
+  
+  slides.forEach(s => {
+    s.addEventListener('click', (e) => {
+      if (s.dataset.notes && e.offsetY > window.innerHeight * 0.5) {
+        notesPanel.innerHTML = `<h5>Presentation Notes</h5><p>${s.dataset.notes}</p>`;
+        notesPanel.classList.add('open');
+      }
+    });
+  });
+})();
 </script>
 </body>
 </html>
